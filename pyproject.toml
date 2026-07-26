@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "codecraftai-restclient-google"
+description = "Code Craft AI - Google Cloud REST client"
+version = "0.0.1"
+authors = ["Myron Walker <myron.walker@gmail.com>"]
+readme = "README.rst"
+license = "LicenseRef-CodeCraftAI-Dual-License"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: Other/Proprietary License",
+    "Operating System :: POSIX"
+]
+keywords = [
+    "python",
+    "automation",
+    "ccai",
+    "restclient",
+    "google",
+    "gcp"
+]
+packages = [{include="ccai", from="source/packages"}]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<4.0"
+requests = "^2.32.4"
+cryptography = "^43.0"
+codecraftai-errors = { git = "https://github.com/automationmojo/codecraftai-errors.git", branch = "main" }
+codecraftai-credentials = { git = "https://github.com/automationmojo/codecraftai-credentials.git", branch = "main" }
+codecraftai-restclient-base = { git = "https://github.com/automationmojo/codecraftai-restclient-base.git", branch = "main" }
+
+[tool.poetry.group.dev.dependencies]
+hypothesis = ">=6.0.0"
+pytest = ">=8.0.0"
+requests-mock = ">=1.11.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
