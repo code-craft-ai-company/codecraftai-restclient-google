@@ -29,7 +29,6 @@ codecraftai-credentials = { git = "https://github.com/automationmojo/codecraftai
 codecraftai-restclient-base = { git = "https://github.com/automationmojo/codecraftai-restclient-base.git", branch = "main" }
 
 [tool.poetry.group.dev.dependencies]
-hypothesis = ">=6.0.0"
 pytest = ">=8.0.0"
 requests-mock = ">=1.11.0"
 
