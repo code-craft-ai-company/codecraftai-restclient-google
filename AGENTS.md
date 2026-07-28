@@ -14,7 +14,7 @@ that are well design, cohesive, and easy to use and that provide rapid but stabl
 
 # Rules
 - Look in the '<repository>/specs' folder for specification files that help to steer development work
-- Look in the '<repository>/usersguide' folder for files containing standards and conventions
+- Look in the '<repository>/userguide' folder for files containing standards and conventions
 - Look in the '<repository>/prompts' folder for pre-build prompts
 - Files inside the .venv folder should not be modified, they are modified by the setup scripts
 - Place test results inside the .output folder, don't create .output-* directories in the root of the repository
