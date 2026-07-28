@@ -16,7 +16,7 @@ import json
 
 from typing import Any, Dict, List, Optional
 
-import pytest
+from ccai import testbase
 
 from ccai.restclient.google.computeclient import ComputeClient
 from ccai.restclient.google.dnsclient import DnsClient
@@ -193,7 +193,7 @@ def test_nested_messages_stay_attribute_addressable():
 def test_private_lookups_are_refused():
     obj = ProtoObject({"name": "x"})
 
-    with pytest.raises(AttributeError):
+    with testbase.raises(AttributeError):
         getattr(obj, "_ipython_canary")
     return
 
@@ -345,7 +345,7 @@ def test_metadata_server_is_used_for_workload_identity():
 
 
 def test_incomplete_service_account_is_refused():
-    with pytest.raises(GoogleAuthError):
+    with testbase.raises(GoogleAuthError):
         GoogleTokenProvider(client_email="svc@example.iam",
                             session=FakeSession())
     return
@@ -358,7 +358,7 @@ def test_unusable_private_key_is_reported():
                                                "-----END PRIVATE KEY-----\n",
                                    session=FakeSession())
 
-    with pytest.raises(GoogleAuthError):
+    with testbase.raises(GoogleAuthError):
         provider.build_assertion(issued_at=1700000000)
     return
 
@@ -384,7 +384,7 @@ def test_404_raises_not_found():
                       payload={"error": {"code": 404,
                                          "message": "not found"}}))
 
-    with pytest.raises(NotFound) as caught:
+    with testbase.raises(NotFound) as caught:
         transport.request(method="GET", url="https://host/x")
 
     # Consumer code catches this name to mean "absent".
@@ -399,7 +399,7 @@ def test_other_failures_raise_the_general_error():
                       status_code=403, reason="Forbidden",
                       payload={"error": {"message": "denied"}}))
 
-    with pytest.raises(GoogleApiError) as caught:
+    with testbase.raises(GoogleApiError) as caught:
         transport.request(method="GET", url="https://host/x")
 
     assert isinstance(caught.value, NotFound) is False
@@ -488,7 +488,7 @@ def test_done_operation_carrying_an_error_raises():
 
     # A DONE operation is not necessarily a successful one — Compute reports
     # failures in the body with a 200 on the poll.
-    with pytest.raises(GoogleOperationError) as caught:
+    with testbase.raises(GoogleOperationError) as caught:
         operation.result(5)
 
     assert "QUOTA_EXCEEDED" in str(caught.value)
@@ -509,7 +509,7 @@ def test_operation_timeout_is_distinct_from_failure():
     operation = subs["networks"].insert(project=PROJECT,
                                         network_resource={"name": "net-a"})
 
-    with pytest.raises(GoogleOperationTimeout) as caught:
+    with testbase.raises(GoogleOperationTimeout) as caught:
         operation.result(0)
 
     assert isinstance(caught.value, GoogleOperationError) is False
