@@ -24,12 +24,12 @@ packages = [{include="ccai", from="source/packages"}]
 python = ">=3.10,<4.0"
 requests = "^2.32.4"
 cryptography = "^45.0.5"
-codecraftai-errors = { git = "https://github.com/automationmojo/codecraftai-errors.git", branch = "main" }
-codecraftai-credentials = { git = "https://github.com/automationmojo/codecraftai-credentials.git", branch = "main" }
-codecraftai-restclient-base = { git = "https://github.com/automationmojo/codecraftai-restclient-base.git", branch = "main" }
+codecraftai-errors = { git = "https://github.com/code-craft-ai-company/codecraftai-errors.git", branch = "main" }
+codecraftai-credentials = { git = "https://github.com/code-craft-ai-company/codecraftai-credentials.git", branch = "main" }
+codecraftai-restclient-base = { git = "https://github.com/code-craft-ai-company/codecraftai-restclient-base.git", branch = "main" }
 
 [tool.poetry.group.dev.dependencies]
-codecraftai-testbase = { git = "https://github.com/automationmojo/codecraftai-testbase.git", branch = "main" }
+codecraftai-testbase = { git = "https://github.com/code-craft-ai-company/codecraftai-testbase.git", branch = "main" }
 pytest = ">=8.0.0"
 requests-mock = ">=1.11.0"
 
