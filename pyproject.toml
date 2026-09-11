@@ -29,7 +29,6 @@ dependencies = [
 [dependency-groups]
 dev = [
     "codecraftai-testbase<2.0.0",
-    "pytest>=8.0.0",
     "requests-mock>=1.11.0",
 ]
 
