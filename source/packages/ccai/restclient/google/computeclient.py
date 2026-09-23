@@ -30,7 +30,8 @@ from ccai.restclient.google.googleapierror import (
     GoogleOperationError, GoogleOperationTimeout
 )
 from ccai.restclient.google.googleobject import (
-    ProtoObject, wrap_many, wrap_value
+    ProtoObject,
+    wrap_many,
 )
 
 
