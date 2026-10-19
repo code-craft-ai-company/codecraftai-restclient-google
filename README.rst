@@ -21,7 +21,7 @@ on it::
     link = existing.self_link if len(existing.self_link) > 0 else fallback
 
 Returning ``None`` would make ``str(None)`` the resource id and crash
-``len()``.  So :class:`ProtoObject` is deliberately the OPPOSITE of the
+``len()``.  So ``ProtoObject`` is deliberately the OPPOSITE of the
 ``None``-for-absent convention the other clients in this fleet use.
 
 Field types cannot be inferred from omitted JSON, so the non-string types are
